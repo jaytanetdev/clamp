@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import ButtonCommon from '../../../../components/Button/ButtonCommon';
 import CountUp from '../../../../components/CountUp';
+import { useCallback } from 'react';
 
 const stats = [
   { value: 100, suffix: '+', label: 'รีวิวจากลูกค้า' },
@@ -11,6 +12,16 @@ const stats = [
 ];
 
 const HeaderSection = () => {
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }, []);
+
   return (
     <div className="container mx-auto flex flex-col lg:flex-row items-center px-4 sm:px-8 md:px-12 lg:px-16 py-8 md:py-12 lg:py-16 gap-8 lg:gap-4">
       {/* Left Content */}
@@ -47,10 +58,20 @@ const HeaderSection = () => {
         </div>
 
         <div className="flex gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
-          <ButtonCommon className="sm:w-[200px]!" variant="secondary" size="md">
+          <ButtonCommon
+            className="sm:w-[200px]!"
+            onClick={() => scrollToSection('products')}
+            variant="secondary"
+            size="md"
+          >
             ดูสินค้าทั้งหมด
           </ButtonCommon>
-          <ButtonCommon className="sm:w-[150px]!" variant="outline-white" size="md">
+          <ButtonCommon
+            className="sm:w-[150px]!"
+            variant="outline-white"
+            onClick={() => scrollToSection('contact')}
+            size="md"
+          >
             ติดต่อเรา
           </ButtonCommon>
         </div>
