@@ -1,0 +1,11 @@
+# robots.txt for JTL Hydraulic
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jtlhydraulic.techhousesoft.com/sitemap.xml
+
+# Disallow admin or private paths (if any)
+# Disallow: /admin/
+# Disallow: /api/
+

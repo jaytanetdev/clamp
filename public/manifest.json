@@ -1,0 +1,21 @@
+{
+  "name": "JTL Hydraulic - แคลมป์ท่อไฮดรอลิก",
+  "short_name": "JTL Hydraulic",
+  "description": "จำหน่ายแคลมป์ท่อ แคลมป์ไฮดรอลิก คุณภาพสูง มาตรฐาน DIN 3015",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/logo/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/logo/logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}

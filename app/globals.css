@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins), var(--font-noto-sans-thai), sans-serif;
+}
+
+@theme {
+  --color-primary: #184e3b;
+  --color-secondary: #ff3300;
+}
+
+body {
+  font-family: var(--font-poppins), var(--font-noto-sans-thai), sans-serif;
+}
+@layer base {
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  h2 {
+    @apply text-lg font-bold;
+  }
+}
