@@ -1,4 +1,5 @@
 import ContactSection from './components/ContactSection';
+import FaqSection from './components/FaqSection';
 import HeaderSection from './components/HeaderSection';
 import ProductSection from './components/ProductSection';
 import ReviewSection from './components/ReviewSection';
@@ -23,6 +24,11 @@ const HomeModule = () => {
 
       <section id="review" className="scroll-mt-24 bg-white">
         <ReviewSection />
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="scroll-mt-24 bg-[#f7f9f8]">
+        <FaqSection />
       </section>
     </div>
   );

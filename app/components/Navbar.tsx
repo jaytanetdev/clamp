@@ -8,6 +8,7 @@ const navItems = [
   { id: 'products', label: 'สินค้า' },
   { id: 'contact', label: 'ติดต่อ' },
   { id: 'review', label: 'รีวิว' },
+  { id: 'faq', label: 'FAQ' },
 ];
 
 const Navbar = () => {

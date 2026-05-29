@@ -1,4 +1,19 @@
 import { siteConfig } from './seo';
+import { faqs } from '../modules/Home/components/FaqSection';
+
+// FAQ Schema (มีสิทธิ์แสดงคำถาม-คำตอบใต้ผลค้นหา + ช่วยกินคำค้นแบบคำถาม)
+export const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a,
+    },
+  })),
+};
 
 // เบอร์โทรรูปแบบสากล (E.164) สำหรับ structured data
 const TEL = '+66982846992';
