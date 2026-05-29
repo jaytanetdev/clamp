@@ -56,7 +56,7 @@ const HeaderSection = () => {
             className="mt-5 animate-fade-up text-[2.6rem] font-bold leading-[1.04] sm:text-6xl md:text-7xl lg:text-[5.2rem]"
             style={{ animationDelay: '0.15s' }}
           >
-            <span className="block">แคล้มรัดท่อ</span>
+            <span className="block">แคลมป์รัดท่อ</span>
             <span className="block">ไฮดรอลิก</span>
             <span className="mt-2 block text-gradient-gold drop-shadow">สินค้าดีมีคุณภาพ</span>
           </h1>
@@ -128,7 +128,7 @@ const HeaderSection = () => {
                 <span className="pointer-events-none absolute left-0 right-0 top-0 z-10 h-px animate-scan bg-gradient-to-r from-transparent via-accent to-transparent" />
                 <Image
                   src="/product/banner-1.png"
-                  alt="Hydraulic Clamps"
+                  alt="แคลมป์ท่อไฮดรอลิก JTL Hydraulic - แคลมป์รัดท่อ พลาสติกและอลูมิเนียม มาตรฐาน DIN 3015"
                   className="relative rounded-xl sm:rounded-2xl"
                   priority
                   width={550}

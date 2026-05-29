@@ -82,10 +82,9 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
   },
 
-  // Verification (เพิ่มหลังจาก verify กับ Google)
-  // verification: {
-  //   google: 'your-google-verification-code',
-  // },
+  // Verification: ยืนยันความเป็นเจ้าของผ่านไฟล์ /google65abee4e97c52599.html (อยู่ใน public/)
+  // หากต้องการใช้วิธี meta tag เพิ่ม ให้นำ token จากเมนู "HTML tag" ใน Search Console มาใส่:
+  // verification: { google: '<token จาก HTML tag>' },
 
   // Canonical URL
   alternates: {

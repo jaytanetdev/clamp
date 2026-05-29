@@ -72,7 +72,7 @@ const Navbar = () => {
               <span className="absolute inset-0 rounded-full bg-primary/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Image
                 src="/logo/logo.webp"
-                alt="logo"
+                alt="JTL Hydraulic โลโก้ - แคลมป์ท่อไฮดรอลิก"
                 width={46}
                 height={46}
                 className="relative transition-transform duration-500 group-hover:rotate-[8deg] group-hover:scale-105"

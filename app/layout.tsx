@@ -1,6 +1,11 @@
 import './globals.css';
 import { metadata as seoMetadata } from './utils/seo';
-import { organizationJsonLd, productJsonLd } from './utils/jsonLd';
+import {
+  organizationJsonLd,
+  productJsonLd,
+  websiteJsonLd,
+  localBusinessJsonLd,
+} from './utils/jsonLd';
 import { fontVariables } from './utils/fonts';
 import Navbar from './components/Navbar';
 
@@ -26,6 +31,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         <script
           type="application/ld+json"
