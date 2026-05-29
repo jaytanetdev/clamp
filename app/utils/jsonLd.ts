@@ -22,6 +22,9 @@ export const productJsonLd = {
   '@type': 'Product',
   name: 'แคลมป์ท่อไฮดรอลิก Pipe Clamp',
   description: 'แคลมป์ท่อคุณภาพสูง มาตรฐาน DIN 3015 มีทั้งพลาสติกและอลูมิเนียม',
+  image: `${siteConfig.url}/product/banner-1.png`,
+  url: siteConfig.url,
+  category: 'Hydraulic Pipe Clamp',
   brand: {
     '@type': 'Brand',
     name: siteConfig.name,
@@ -32,5 +35,6 @@ export const productJsonLd = {
     lowPrice: '70',
     highPrice: '9000',
     availability: 'https://schema.org/InStock',
+    url: siteConfig.url,
   },
 };

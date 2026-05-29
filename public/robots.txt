@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://jtlhydraulic.techhousesoft.com/sitemap.xml
+Sitemap: https://hydraulic.techhousesoft.com/sitemap.xml
 
 # Disallow admin or private paths (if any)
 # Disallow: /admin/

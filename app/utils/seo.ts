@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
-const BASE_URL = 'https://jtlhydraulic.techhousesoft.com';
+const BASE_URL = 'https://hydraulic.techhousesoft.com';
 
 export const siteConfig = {
   name: 'JTL Hydraulic',
   description: 'จำหน่ายแคลมป์ท่อ แคลมป์ไฮดรอลิก คุณภาพสูง มาตรฐาน DIN 3015',
   url: BASE_URL,
-  ogImage: `${BASE_URL}/og-image.jpg`,
+  ogImage: `${BASE_URL}/product/banner-1.png`,
   links: {
     line: 'https://line.me/R/ti/p/@934bnkrg',
     shopee: 'https://shopee.co.th/jtl.hydraulic',
@@ -15,6 +15,8 @@ export const siteConfig = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
+
   // Basic
   title: {
     default: 'JTL Hydraulic - แคลมป์ท่อ ไฮดรอลิก คุณภาพสูง มาตรฐานเยอรมัน',
@@ -65,8 +67,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
+        width: 861,
+        height: 794,
         alt: 'JTL Hydraulic - แคลมป์ท่อไฮดรอลิก',
       },
     ],
