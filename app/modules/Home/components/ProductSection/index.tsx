@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useCallback } from 'react';
 import Carousel from '../../../../components/Carousel/Carousel';
+import Reveal from '../../../../components/Reveal';
 import SelectionCard from './SelectionCard';
 import SizeSelector from './SizeSelector';
 import ProductSummary from './ProductSummary';
@@ -173,24 +174,48 @@ const ProductSection = () => {
   }, [selectedBase2Hole, selectedSeries, selectedTwinSize]);
 
   return (
-    <div className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 py-8 md:py-12">
-      <h1 className="text-4xl mb-10 ">สามารถเลือกสินค้าที่ต้องการได้ที่นี้</h1>
-      <div className="flex flex-col lg:flex-row gap-8">
+    <div className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 py-12 md:py-20">
+      <Reveal className="relative mb-12">
+        <span className="font-mono inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.25em] text-secondary">
+          <span className="h-px w-8 bg-secondary" />
+          Product Configurator
+        </span>
+        <h2 className="mt-4 max-w-2xl text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
+          เลือกสเปกสินค้า
+          <span className="text-primary"> ของคุณเอง</span>
+        </h2>
+        <p className="mt-4 max-w-xl text-gray-500">
+          กำหนดจำนวนรู ฐาน วัสดุ รุ่น และขนาด แล้วดูราคาทันที — เลือกง่ายในไม่กี่ขั้นตอน
+        </p>
+      </Reveal>
+
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
         {/* Carousel */}
         <div className="w-full lg:w-1/2">
-          <Carousel
-            images={images}
-            showThumbnails={images.length > 1}
-            thumbnailsToShow={images.length > 1 ? 4 : 0}
-            heightMainImg={500}
-          />
+          <div className="lg:sticky lg:top-28">
+            <div className="font-mono mb-3 flex items-center justify-between text-[11px] uppercase tracking-widest text-primary/50">
+              <span>// preview</span>
+              <span>Ø6 – 168 mm</span>
+            </div>
+            <Carousel
+              images={images}
+              showThumbnails={images.length > 1}
+              thumbnailsToShow={images.length > 1 ? 4 : 0}
+              heightMainImg={500}
+            />
+          </div>
         </div>
 
         {/* Selection Panel */}
-        <div className="w-full lg:w-1/2 space-y-6">
+        <div className="bp-corners w-full space-y-6 rounded-2xl border border-primary/15 bg-white p-5 text-primary shadow-xl shadow-primary/5 sm:p-7 lg:w-1/2">
           {/* Step 1: เลือกจำนวนรู */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">1. เลือกจำนวนรู</h3>
+            <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center gap-2.5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary ring-1 ring-primary/15">
+                1
+              </span>
+              เลือกจำนวนรู
+            </h3>
             <div className="flex gap-3">
               {holes.map((hole) => (
                 <SelectionCard
@@ -208,8 +233,13 @@ const ProductSection = () => {
 
           {/* Step 2: เลือกฐาน (1 รู) */}
           {selectedHole === '1hole' && (
-            <div>
-              <h3 className="text-lg font-semibold mb-3">2. เลือกประเภทฐาน</h3>
+            <div className="animate-fade-up">
+              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center gap-2.5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary ring-1 ring-primary/15">
+                  2
+                </span>
+                เลือกประเภทฐาน
+              </h3>
               <div className="flex gap-3">
                 {bases1Hole.map((base) => (
                   <SelectionCard
@@ -229,8 +259,13 @@ const ProductSection = () => {
 
           {/* Step 2: เลือกฐาน (2 รู) */}
           {selectedHole === '2hole' && (
-            <div>
-              <h3 className="text-lg font-semibold mb-3">2. เลือกประเภทฐาน</h3>
+            <div className="animate-fade-up">
+              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center gap-2.5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary ring-1 ring-primary/15">
+                  2
+                </span>
+                เลือกประเภทฐาน
+              </h3>
               <div className="flex gap-3">
                 {bases2Hole.map((base) => (
                   <SelectionCard
@@ -252,8 +287,13 @@ const ProductSection = () => {
 
           {/* Step 3: เลือกวัสดุ (1 รู) */}
           {selectedHole === '1hole' && selectedBase1Hole && (
-            <div>
-              <h3 className="text-lg font-semibold mb-3">3. เลือกวัสดุ</h3>
+            <div className="animate-fade-up">
+              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center gap-2.5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary ring-1 ring-primary/15">
+                  3
+                </span>
+                เลือกวัสดุ
+              </h3>
               <div className="flex gap-3">
                 {materials.map((material) => (
                   <SelectionCard
@@ -274,8 +314,13 @@ const ProductSection = () => {
 
           {/* Step 4: เลือกรุ่น (1 รู) */}
           {selectedHole === '1hole' && selectedBase1Hole && selectedMaterial && (
-            <div>
-              <h3 className="text-lg font-semibold mb-3">4. เลือกรุ่น</h3>
+            <div className="animate-fade-up">
+              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center gap-2.5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary ring-1 ring-primary/15">
+                  4
+                </span>
+                เลือกรุ่น
+              </h3>
               <div className="flex gap-3">
                 {variants.map((variant) => (
                   <SelectionCard
@@ -296,7 +341,8 @@ const ProductSection = () => {
           {/* Step 5: เลือกขนาด (1 รู) */}
           {selectedHole === '1hole' && selectedBase1Hole && selectedMaterial && selectedVariant && (
             <SizeSelector
-              title="5. เลือกขนาด (mm)"
+              title="เลือกขนาด (mm)"
+              step={5}
               sizes={currentSizes}
               selectedSeries={selectedSeries}
               selectedSize={selectedSize}
@@ -307,7 +353,8 @@ const ProductSection = () => {
           {/* Step 3: เลือกขนาด (2 รู) */}
           {selectedHole === '2hole' && selectedBase2Hole && (
             <SizeSelector
-              title="3. เลือกขนาด D1/D2 (mm)"
+              title="เลือกขนาด D1/D2 (mm)"
+              step={3}
               sizes={twinSizes}
               selectedSeries={selectedSeries}
               selectedSize={selectedTwinSize}

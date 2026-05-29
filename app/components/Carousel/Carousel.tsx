@@ -17,9 +17,10 @@ const PrevArrow = ({ onClick }: ArrowProps) => (
   <button
     type="button"
     onClick={onClick}
-    className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all cursor-pointer"
+    aria-label="ก่อนหน้า"
+    className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 glass hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-110 hover:-translate-x-0.5 ring-1 ring-primary/10"
   >
-    <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
     </svg>
   </button>
@@ -29,9 +30,10 @@ const NextArrow = ({ onClick }: { onClick?: () => void }) => (
   <button
     type="button"
     onClick={onClick}
-    className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all cursor-pointer"
+    aria-label="ถัดไป"
+    className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 glass hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-110 hover:translate-x-0.5 ring-1 ring-primary/10"
   >
-    <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
     </svg>
   </button>
@@ -93,9 +95,9 @@ const Carousel = ({
       <div className="relative">
         <Slider {...mainSettings} ref={mainSliderRef}>
           {images.map((src, index) => (
-            <div key={index} className="p-4 border border-primary rounded-3xl">
+            <div key={index} className="p-3">
               <div
-                className="relative"
+                className="relative overflow-hidden rounded-3xl border border-primary/15 bg-white shadow-lg shadow-primary/5 ring-1 ring-black/5"
                 style={{ height: heightMainImg ? `${heightMainImg}px` : '450px' }}
               >
                 <Image
@@ -103,7 +105,7 @@ const Carousel = ({
                   alt={`Image ${index + 1}`}
                   fill
                   sizes="100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
             </div>
@@ -118,10 +120,10 @@ const Carousel = ({
             {images.map((src, index) => (
               <div key={index} className="px-1 cursor-pointer">
                 <div
-                  className={`relative aspect-square border-2 rounded-lg overflow-hidden transition-colors ${
+                  className={`relative aspect-square border-2 rounded-xl overflow-hidden transition-all duration-300 ${
                     currentSlide === index
-                      ? 'border-primary'
-                      : 'border-gray-200 hover:border-primary/50'
+                      ? 'border-primary ring-2 ring-primary/20 scale-95'
+                      : 'border-gray-200 hover:border-primary/50 opacity-70 hover:opacity-100'
                   }`}
                 >
                   <Image

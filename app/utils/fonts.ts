@@ -1,4 +1,4 @@
-import { Noto_Sans_Thai, Poppins } from 'next/font/google';
+import { Noto_Sans_Thai, Poppins, JetBrains_Mono } from 'next/font/google';
 
 export const notoSansThai = Noto_Sans_Thai({
   variable: '--font-noto-sans-thai',
@@ -12,4 +12,11 @@ export const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700'],
 });
 
-export const fontVariables = `${notoSansThai.variable} ${poppins.variable}`;
+// Monospace for technical / spec-sheet labels (codes, Ø, mm, numbers)
+export const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-mono',
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+});
+
+export const fontVariables = `${notoSansThai.variable} ${poppins.variable} ${jetbrainsMono.variable}`;
