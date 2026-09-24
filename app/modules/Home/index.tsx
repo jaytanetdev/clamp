@@ -1,4 +1,5 @@
 import ContactSection from './components/ContactSection';
+import Clamp3DSection from './components/Clamp3DSection';
 import FaqSection from './components/FaqSection';
 import HeaderSection from './components/HeaderSection';
 import ProductSection from './components/ProductSection';
@@ -11,6 +12,8 @@ const HomeModule = () => {
       <section id="home">
         <HeaderSection />
       </section>
+
+      <Clamp3DSection />
 
       {/* Products Section */}
       <section id="products" className="scroll-mt-24 bg-blueprint bg-[#f7f9f8]">
