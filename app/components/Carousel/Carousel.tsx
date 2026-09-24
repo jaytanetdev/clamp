@@ -41,7 +41,6 @@ const NextArrow = ({ onClick }: { onClick?: () => void }) => (
 
 interface CarouselProps {
   images: string[];
-  imageAlt: string;
   showThumbnails?: boolean;
   thumbnailsToShow?: number;
   autoplay?: boolean;
@@ -52,7 +51,6 @@ interface CarouselProps {
 
 const Carousel = ({
   images,
-  imageAlt,
   showThumbnails = true,
   thumbnailsToShow = 4,
   autoplay = false,
@@ -104,9 +102,9 @@ const Carousel = ({
               >
                 <Image
                   src={src}
-                  alt={`${imageAlt} รูปที่ ${index + 1}`}
+                  alt={`Image ${index + 1}`}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="100vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -130,7 +128,7 @@ const Carousel = ({
                 >
                   <Image
                     src={src}
-                    alt={`รูปย่อ ${imageAlt} รูปที่ ${index + 1}`}
+                    alt={`Thumb ${index + 1}`}
                     fill
                     sizes="100px"
                     className="object-cover"

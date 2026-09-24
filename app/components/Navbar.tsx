@@ -1,9 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 const navItems = [
   { id: 'home', label: 'หน้าแรก' },
@@ -14,9 +12,18 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
+
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }, []);
 
   // Shrink / add depth on scroll
   useEffect(() => {
@@ -57,9 +64,10 @@ const Navbar = () => {
           }`}
         >
           {/* Logo */}
-          <Link
-            href="/"
+          <button
+            type="button"
             className="group flex items-center gap-2 cursor-pointer"
+            onClick={() => scrollToSection('home')}
           >
             <span className="relative inline-flex">
               <span className="absolute inset-0 rounded-full bg-primary/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -79,16 +87,16 @@ const Navbar = () => {
                 Industrial Clamps
               </span>
             </span>
-          </Link>
+          </button>
 
           {/* Nav Items */}
           <div className="flex gap-1 sm:gap-2 lg:gap-3">
             {navItems.map((item) => {
-              const isActive = pathname === '/' && active === item.id;
+              const isActive = active === item.id;
               return (
-                <Link
+                <button
                   key={item.id}
-                  href={`/#${item.id}`}
+                  onClick={() => scrollToSection(item.id)}
                   className={`relative px-2.5 sm:px-4 py-2 rounded-xl lg:text-base text-sm font-semibold cursor-pointer transition-colors duration-300 ${
                     isActive ? 'text-primary' : 'text-gray-500 hover:text-primary'
                   }`}
@@ -104,7 +112,7 @@ const Navbar = () => {
                       isActive ? 'opacity-100' : 'opacity-0'
                     }`}
                   />
-                </Link>
+                </button>
               );
             })}
           </div>

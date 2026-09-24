@@ -2,12 +2,13 @@
 
 import Image from 'next/image';
 import ButtonCommon from '../../../../components/Button/ButtonCommon';
+import CountUp from '../../../../components/CountUp';
 import { useCallback } from 'react';
 
 const stats = [
-  { value: 'Ø6–168', label: 'ขนาดท่อ (มม.)', code: 'SIZE' },
-  { value: '1 / 2', label: 'จำนวนรู', code: 'HOLES' },
-  { value: 'L / H', label: 'Standard / Heavy', code: 'SERIES' },
+  { value: 100, suffix: '+', label: 'รีวิวจากลูกค้า', code: 'REVIEWS' },
+  { value: 3, suffix: '+', label: 'ปีประสบการณ์', code: 'YEARS' },
+  { value: 100, suffix: '%', label: 'รับประกันคุณภาพ', code: 'QUALITY' },
 ];
 
 const marquee = [
@@ -75,7 +76,7 @@ const HeaderSection = () => {
             {stats.map((stat) => (
               <div key={stat.label} className="px-2 py-4 text-center">
                 <div className="font-mono text-2xl font-bold text-gradient-gold sm:text-3xl lg:text-4xl">
-                  {stat.value}
+                  <CountUp end={stat.value} suffix={stat.suffix} duration={2000} />
                 </div>
                 <div className="font-mono mt-1 text-[9px] tracking-widest text-accent/70 sm:text-[10px]">
                   {stat.code}
@@ -139,11 +140,11 @@ const HeaderSection = () => {
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 ring-2 ring-green-200 sm:h-10 sm:w-10">
                   <span className="text-base font-bold text-primary sm:text-xl">✓</span>
                 </div>
-                <span className="text-xs font-bold sm:text-sm">เลือกขนาดให้ตรงกับท่อ</span>
+                <span className="text-xs font-bold sm:text-sm">คุณภาพผ่านมาตรฐาน</span>
               </div>
 
               <div className="font-mono absolute -right-3 -top-3 animate-float rounded-md bg-secondary px-3 py-1.5 text-[10px] font-bold text-white shadow-lg sm:-right-4 sm:-top-4 sm:text-xs">
-                CHECK SPECS
+                IN STOCK
               </div>
             </div>
           </div>

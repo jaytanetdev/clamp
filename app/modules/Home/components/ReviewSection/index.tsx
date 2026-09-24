@@ -22,6 +22,20 @@ const ReviewSection = () => {
         <p className="mx-auto max-w-lg text-gray-500">
           ความประทับใจจากลูกค้าที่ไว้วางใจเลือกใช้สินค้าของเรา
         </p>
+        <div className="flex items-center justify-center gap-1">
+          {[...Array(5)].map((_, i) => (
+            <Image
+              key={i}
+              src="/icon/star.png"
+              alt="star"
+              width={22}
+              height={22}
+              className="animate-fade-up"
+              style={{ animationDelay: `${i * 80}ms` }}
+            />
+          ))}
+          <span className="ml-2 text-gray-700 font-semibold">5.0</span>
+        </div>
       </Reveal>
 
       {/* Reviews Grid */}
