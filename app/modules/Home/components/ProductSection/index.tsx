@@ -58,12 +58,6 @@ const ProductSection = () => {
     setSelectedSize(null);
   }, []);
 
-  const resetFromMaterial = useCallback(() => {
-    setSelectedVariant(null);
-    setSelectedSeries(null);
-    setSelectedSize(null);
-  }, []);
-
   // useCallback - เลือกขนาดแรกอัตโนมัติ สำหรับ 1 รู
   const selectFirstSize = useCallback((variant: VariantType, base: BaseType1Hole) => {
     const sizes = variantSizes[variant];
@@ -194,11 +188,16 @@ const ProductSection = () => {
         <div className="w-full lg:w-1/2">
           <div className="lg:sticky lg:top-28">
             <div className="font-mono mb-3 flex items-center justify-between text-[11px] uppercase tracking-widest text-primary/50">
-              <span>// preview</span>
+              <span>{'// preview'}</span>
               <span>Ø6 – 168 mm</span>
             </div>
             <Carousel
               images={images}
+              imageAlt={selectedHole === '2hole'
+                ? 'แคลมป์รัดท่อพลาสติกแบบ 2 รู'
+                : selectedMaterial && selectedVariant
+                  ? `แคลมป์รัดท่อ${selectedMaterial === 'aluminum' ? 'อลูมิเนียม' : 'พลาสติก'} รุ่น ${selectedVariant === 'heavy' ? 'Heavy' : 'Standard'}`
+                  : 'แคลมป์รัดท่อไฮดรอลิก'}
               showThumbnails={images.length > 1}
               thumbnailsToShow={images.length > 1 ? 4 : 0}
               heightMainImg={500}

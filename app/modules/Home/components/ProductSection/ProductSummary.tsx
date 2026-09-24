@@ -15,7 +15,7 @@ const ProductSummary = ({ title, subtitle, price }: ProductSummaryProps) => {
         <p className="font-mono mb-3 flex items-center justify-between text-[11px] uppercase tracking-widest text-white/60">
           <span className="inline-flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            // สรุปสเปก
+            {'// สรุปสเปก'}
           </span>
           <span className="text-accent/80">CONFIG ✓</span>
         </p>

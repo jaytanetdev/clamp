@@ -1,15 +1,10 @@
 import { MetadataRoute } from 'next';
 import { siteConfig } from './utils/seo';
+import { catalog } from './data/catalog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // หมายเหตุ: Google ไม่ถือว่า URL ที่มี #fragment เป็นหน้าแยก
-  // จึงใส่เฉพาะหน้าจริง (homepage) เท่านั้น
   return [
-    {
-      url: siteConfig.url,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
+    { url: siteConfig.url },
+    ...catalog.map(({ slug }) => ({ url: `${siteConfig.url}/products/${slug}` })),
   ];
 }
