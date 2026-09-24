@@ -113,31 +113,52 @@ export default function Clamp3DSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} aria-labelledby="clamp-3d-title" className="relative h-[210vh] bg-[#f1f6f3] motion-reduce:h-screen">
-      <div className="bg-blueprint sticky top-0 flex h-screen items-center overflow-hidden px-4 py-20 sm:px-8">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+    <section ref={sectionRef} aria-labelledby="clamp-3d-title" className="relative h-[210vh] bg-[#0a3028] motion-reduce:h-screen">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden px-4 pb-4 pt-24 sm:px-8 sm:py-20">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-50"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(177, 231, 205, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(177, 231, 205, .07) 1px, transparent 1px)',
+            backgroundSize: '72px 72px',
+          }}
+        />
+        <div className="pointer-events-none absolute -left-48 top-1/4 h-[35rem] w-[35rem] rounded-full bg-[#2a795e]/30 blur-[110px]" />
+        <div className="pointer-events-none absolute -right-24 top-[-15rem] h-[42rem] w-[42rem] rounded-full bg-[#d9ae5f]/15 blur-[120px]" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/20 to-transparent" />
+        <div className="relative mx-auto grid w-full max-w-6xl items-center gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
           <div className="relative z-10 text-center lg:text-left">
-            <p className="font-mono text-xs font-bold tracking-[0.2em] text-primary-light">360° PRODUCT VIEW</p>
-            <h2 id="clamp-3d-title" className="mt-4 text-3xl font-bold leading-tight text-primary-dark sm:text-5xl">
+            <p className="font-mono hidden text-xs font-bold tracking-[0.16em] text-[#f4c66d] sm:block">JTL-HYD / 360°</p>
+            <h2 id="clamp-3d-title" className="mt-5 text-3xl font-bold leading-tight text-white sm:text-5xl">
               แคลมป์รัดท่อ<br />มองครบทุกมุม
             </h2>
-            <p className="mx-auto mt-5 max-w-md text-sm leading-7 text-slate-600 sm:text-base lg:mx-0">
+            <p className="mx-auto mt-5 max-w-md text-sm leading-7 text-white/75 sm:text-base lg:mx-0">
               เลื่อนหน้าจอเพื่อดูโครงสร้างตัวแคลมป์ ช่องรัดท่อ และแผ่นยึดโลหะรอบด้าน
             </p>
-            <div className="mt-7 flex items-center justify-center gap-3 lg:justify-start">
-              <span className="font-mono text-3xl font-bold text-primary sm:text-4xl">{angle}°</span>
-              <span className="text-sm text-slate-500">เลื่อนเพื่อหมุนโมเดล</span>
+            <div className="mx-auto mt-8 max-w-sm lg:mx-0">
+              <div className="flex items-baseline justify-between text-white">
+                <span className="font-mono text-3xl font-bold text-[#f4c66d] sm:text-4xl">{angle}°</span>
+                <span className="text-sm text-white/70 motion-reduce:hidden">เลื่อนเพื่อหมุนโมเดล</span>
+                <span className="hidden text-sm text-white/70 motion-reduce:inline">มุมมองโมเดล</span>
+              </div>
+              <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/15" aria-hidden="true">
+                <div className="h-full rounded-full bg-[#f4c66d]" style={{ width: `${(angle / 360) * 100}%` }} />
+              </div>
             </div>
-            <p className="mt-4 text-xs text-slate-500">โมเดลภาพประกอบอ้างอิงจากรูปสินค้าจริง</p>
+            <p className="mt-5 text-xs text-white/55">โมเดลภาพประกอบอ้างอิงจากรูปสินค้าจริง</p>
           </div>
-          <div className="relative mx-auto aspect-square w-full max-w-[590px] overflow-hidden rounded-[2rem] border border-primary/10 bg-gradient-to-br from-white via-[#e9f3ee] to-[#cbded4] shadow-[0_30px_80px_rgba(11,68,47,0.16)]">
-            <div className="pointer-events-none absolute inset-x-10 bottom-8 h-20 rounded-full bg-primary/15 blur-2xl" />
+          <div className="relative mx-auto aspect-square w-full max-w-[34svh] overflow-hidden rounded-[2rem] border border-white/40 bg-[radial-gradient(circle_at_48%_38%,#ffffff_0%,#e9f4ed_53%,#a9cabb_100%)] shadow-[0_35px_100px_rgba(0,0,0,0.35),inset_0_0_60px_rgba(255,255,255,0.6)] sm:max-w-[590px]">
+            <div className="pointer-events-none absolute inset-[10%] rounded-full border border-primary/10" />
+            <div className="pointer-events-none absolute inset-[18%] rounded-full border border-dashed border-primary/20" style={{ transform: `rotate(${angle}deg)` }}>
+              <span className="absolute left-1/2 top-[-5px] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-[#d8aa4b] shadow-[0_0_18px_#d8aa4b]" />
+            </div>
+            <div className="pointer-events-none absolute inset-x-[20%] bottom-[9%] h-14 rounded-full bg-primary/25 blur-xl" />
+            <div className="pointer-events-none absolute inset-x-[8%] top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
             {!ready && (
               <Image src="/product/st/st-1.jpg" alt="แคลมป์รัดท่อไฮดรอลิกสีเขียวพร้อมแผ่นยึดโลหะ" fill sizes="(max-width: 1024px) 90vw, 590px" className="object-cover" />
             )}
             <div ref={stageRef} className="absolute inset-0" aria-label="โมเดลแคลมป์รัดท่อไฮดรอลิกหมุน 360 องศาตามการเลื่อนหน้าจอ" role="img" />
-            <div className="font-mono pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full border border-primary/10 bg-white/80 px-4 py-2 text-[11px] font-bold tracking-widest text-primary backdrop-blur">
-              SCROLL TO ROTATE · 360°
+            <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-primary/10 bg-white/85 px-4 py-2 text-xs font-semibold text-primary shadow-sm backdrop-blur motion-reduce:hidden">
+              เลื่อนเพื่อหมุน 360°
             </div>
           </div>
         </div>
